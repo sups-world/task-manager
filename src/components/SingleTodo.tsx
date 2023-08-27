@@ -1,8 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { Todo } from '../model';
+// type has equals but interface does not
+type Props = {
+    todo: Todo,
+    todos: Todo[],
+    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
+}
 
-const SingleTodo = () => {
+const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }: Props) => {
     return (
-        <div>SingleTodo</div>
+        <form className='todos__single'>
+            <span className="todos__single--text"> {todo.todo}</span>
+        </form>
     )
 }
 
