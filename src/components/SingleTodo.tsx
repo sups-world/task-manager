@@ -12,9 +12,24 @@ type Props = {
 }
 
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }: Props) => {
+
+
+    const handleDone = (id: number) => {
+        setTodos(todos.map((t) =>
+            t.id === id ? { ...t, isDone: !t.isDone } : t))
+    }
     return (
         <form className='todos__single'>
-            <span className="todos__single--text"> {todo.todo}</span>
+            {
+                todo.isDone ? (
+                    <s className="todos__single--text"> {todo.todo}</s>
+
+                ) : (
+                    <span className="todos__single--text"> {todo.todo}</span>
+
+                )
+
+            }
             <div>
                 <span className="icon">
                     <AiOutlineEdit />
@@ -22,7 +37,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }: Props) => {
                 <span className="icon">
                     <AiOutlineDelete />
                 </span>
-                <span className="icon">
+                <span className="icon" onClick={() => handleDone(todo.id)} >
                     <MdOutlineDone />
                 </span>
 
