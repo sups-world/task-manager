@@ -18,6 +18,11 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }: Props) => {
         setTodos(todos.map((t) =>
             t.id === id ? { ...t, isDone: !t.isDone } : t))
     }
+
+    const handleDelete = (id: number) => {
+        setTodos(todos.filter((t) => t.id !== id));
+    }
+
     return (
         <form className='todos__single'>
             {
@@ -34,7 +39,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }: Props) => {
                 <span className="icon">
                     <AiOutlineEdit />
                 </span>
-                <span className="icon">
+                <span className="icon" onClick={() => handleDelete(todo.id)}>
                     <AiOutlineDelete />
                 </span>
                 <span className="icon" onClick={() => handleDone(todo.id)} >
