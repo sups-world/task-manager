@@ -1,0 +1,98 @@
+.input {
+  display: flex;
+  width: 90%;
+  position: relative;
+  align-items: center;
+}
+
+.input__box {
+  width: 100%;
+  border-radius: 50px;
+  padding: 20px 30px;
+  font-size: 25px;
+  border: none;
+  transition: 0.2s;
+  box-shadow: inset 0 0 5px black;
+}
+
+/* focus to change background color when cursor placed there */
+.input__box:focus {
+  box-shadow: 0 0 10px 1000px darkblue;
+}
+.input_submit {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin: 12px;
+  border-radius: 50px;
+  right: 0px;
+  border: none;
+  font-size: 15px;
+  background-color: rgb(74, 205, 74);
+  color: white;
+  transition: 0.2s all;
+  box-shadow: 0 0 10px black;
+}
+
+.input_submit:hover {
+  background-color: rgb(3, 123, 3);
+}
+
+.input_submit:active {
+  transform: scale(0.8);
+  /* transform makes it smaller when clicked */
+  box-shadow: 0 0 5px black;
+}
+
+.todos {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  flex-wrap: wrap;
+  color: rgb(162, 140, 140);
+}
+
+.todos__single {
+  display: flex;
+  width: 29.5%;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 15px;
+  /* background-image: url("https://img.freepik.com/free-vector/torn-paper-with-sticky-tape-banner_1017-32517.jpg?w=1380&t=st=1693198314~exp=1693198914~hmac=2579c35b2612807270956dd6a2c81b602bbc155ecc7eb65a3f6683fcba3d9dbb"); */
+  background-color: rgb(71, 226, 162);
+}
+
+.todos__single--text {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+}
+
+.todos__single--text:focus {
+  outline: none;
+}
+
+.icon {
+  margin-left: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .input {
+    width: 95%;
+  }
+  .todos {
+    width: 95%;
+  }
+  .todos__single {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .todos__Single {
+    width: 40%;
+  }
+}
